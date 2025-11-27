@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Üst Bar -->
@@ -198,7 +198,16 @@
         </div>
     </footer>
 
-    <script src="../js/script.js"></script>
+        <script src="js/script.js"></script>
+        <script>
+        (function(){
+            const s = document.createElement("script");
+            s.src = "https://panel.qmindlab.com/app/widget.js";
+            s.async = true;
+            s.dataset.tenantId = "fa4eb14a-b8d0-4ba0-b26b-20ad8be8768b";
+            document.head.appendChild(s);
+        })();
+        </script>
 </body>
 </html>
 
