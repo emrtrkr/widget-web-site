@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab.Q. - Lüks Moda & Yaşam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Üst Bar -->
+    <div class="top-bar">
+        <p>Kargo Bedava | 500 TL ve Üzeri Siparişlerde</p>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="nav-center">
+                <a href="#" class="logo">Lab.Q.</a>
+            </div>
+            <div class="nav-right">
+                <button class="icon-btn" aria-label="Ara">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Hesabım">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Favoriler">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn cart-btn" aria-label="Sepet">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Kategoriler Menüsü -->
+        <div class="categories-menu" id="categoriesMenu">
+            <a href="#" class="category-link" data-category="all">Tümü</a>
+            <a href="#" class="category-link" data-category="kadin">Kadın</a>
+            <a href="#" class="category-link" data-category="erkek">Erkek</a>
+            <a href="#" class="category-link" data-category="cocuk">Çocuk</a>
+            <a href="#" class="category-link" data-category="ev-yasam">Ev & Yaşam</a>
+            <a href="#" class="category-link" data-category="outlet">Outlet</a>
+            <a href="#" class="category-link" data-category="kozmetik">Kozmetik</a>
+            <a href="#" class="category-link" data-category="ayakkabi-canta">Ayakkabı & Çanta</a>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Kapat">×</button>
+            <nav class="mobile-nav">
+                <a href="#" class="mobile-nav-link" data-category="all">Tümü</a>
+                <a href="#" class="mobile-nav-link" data-category="kadin">Kadın</a>
+                <a href="#" class="mobile-nav-link" data-category="erkek">Erkek</a>
+                <a href="#" class="mobile-nav-link" data-category="cocuk">Çocuk</a>
+                <a href="#" class="mobile-nav-link" data-category="ev-yasam">Ev & Yaşam</a>
+                <a href="#" class="mobile-nav-link" data-category="outlet">Outlet</a>
+                <a href="#" class="mobile-nav-link" data-category="kozmetik">Kozmetik</a>
+                <a href="#" class="mobile-nav-link" data-category="ayakkabi-canta">Ayakkabı & Çanta</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slide active">
+            <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80')"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Yeni Koleksiyonu Keşfet</h1>
+                <p class="hero-subtitle">Zamansız Zarafet, Modern Lüks</p>
+                <a href="#products" class="hero-btn">Koleksiyonu Görüntüle</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategoriler Vitrini -->
+    <section class="categories-showcase">
+        <div class="container">
+            <h2 class="section-title">Kategoriler</h2>
+            <div class="categories-grid">
+                <a href="#" class="category-card" data-category="kadin">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80')"></div>
+                    <h3 class="category-name">Kadın</h3>
+                </a>
+                <a href="#" class="category-card" data-category="erkek">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80')"></div>
+                    <h3 class="category-name">Erkek</h3>
+                </a>
+                <a href="#" class="category-card" data-category="cocuk">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80')"></div>
+                    <h3 class="category-name">Çocuk</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ürün Vitrini -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title" id="productsTitle">Öne Çıkan Ürünler</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Ürünler JavaScript ile buraya eklenecek -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ürün Detay Modal -->
+    <div class="product-modal-overlay" id="productModalOverlay">
+        <div class="product-modal">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Kapat">×</button>
+            <div class="product-modal-content" id="productModalContent">
+                <!-- İçerik JavaScript ile doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sepet Modal -->
+    <div class="cart-modal-overlay" id="cartModalOverlay">
+        <div class="cart-modal">
+            <div class="cart-modal-header">
+                <h2 class="cart-modal-title">Sepetim</h2>
+                <button class="cart-modal-close-btn" id="cartModalCloseBtn" aria-label="Kapat">×</button>
+            </div>
+            <div class="cart-modal-content" id="cartModalContent">
+                <!-- Sepet içeriği JavaScript ile doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">Kurumsal</h3>
+                    <ul class="footer-links">
+                        <li><a href="pages/hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="pages/kariyer.html">Kariyer</a></li>
+                        <li><a href="pages/iletisim.html">İletişim</a></li>
+                        <li><a href="pages/magazalarimiz.html">Mağazalarımız</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Yardım</h3>
+                    <ul class="footer-links">
+                        <li><a href="pages/sss.html">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="pages/kargo-teslimat.html">Kargo & Teslimat</a></li>
+                        <li><a href="pages/iade-degisim.html">İade & Değişim</a></li>
+                        <li><a href="pages/guvenli-alisveris.html">Güvenli Alışveriş</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Sosyal Medya</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Bülten</h3>
+                    <p class="footer-text">Yeni koleksiyonlar ve özel fırsatlardan haberdar olun.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="E-posta adresiniz" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Abone Ol</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lab.Q.. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
