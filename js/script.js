@@ -1682,8 +1682,36 @@ const cartModalContent = document.getElementById('cartModalContent');
 const cartModalCloseBtn = document.getElementById('cartModalCloseBtn');
 const cartBtn = document.querySelector('.cart-btn');
 
+// Popüler Ürünleri Getir (Anasayfa için)
+function getFeaturedProducts() {
+    // Badge'i "new" olan ürünleri öncelikle al, yoksa rastgele seç
+    const newProducts = products.filter(p => p.badge === 'new');
+    const featuredCount = 12;
+    
+    if (newProducts.length >= featuredCount) {
+        // Yeni ürünlerden rastgele seç
+        return shuffleArray([...newProducts]).slice(0, featuredCount);
+    } else {
+        // Yeni ürünler + rastgele ürünler
+        const remaining = featuredCount - newProducts.length;
+        const otherProducts = products.filter(p => p.badge !== 'new');
+        const randomProducts = shuffleArray([...otherProducts]).slice(0, remaining);
+        return [...newProducts, ...randomProducts];
+    }
+}
+
+// Array karıştırma fonksiyonu
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
 // Ürünleri Render Etme
-function renderProducts(productsToRender = products, category = 'all') {
+function renderProducts(productsToRender = products, category = 'all', isHomePage = false) {
     // Fade out animasyonu
     productsGrid.style.opacity = '0';
     productsGrid.style.transform = 'translateY(20px)';
@@ -1706,7 +1734,7 @@ function renderProducts(productsToRender = products, category = 'all') {
         
         // Başlık güncelleme
         if (productsTitle) {
-            if (category === 'all') {
+            if (isHomePage || category === 'all') {
                 productsTitle.textContent = 'Öne Çıkan Ürünler';
             } else {
                 productsTitle.textContent = categoryNames[category] || 'Ürünler';
@@ -2019,15 +2047,28 @@ mobileMenuOverlay.addEventListener('click', (e) => {
     }
 });
 
-// Kategori Filtreleme Fonksiyonu
-function filterProductsByCategory(category) {
-    if (category === 'all') {
-        renderProducts(products, 'all');
-    } else {
-        const filteredProducts = products.filter(p => p.category === category);
-        renderProducts(filteredProducts, category);
-    }
+// URL'den kategoriyi oku
+function getCategoryFromURL() {
+    const path = window.location.pathname;
+    const pathParts = path.split('/').filter(p => p);
+    const categoryFromPath = pathParts[pathParts.length - 1] || '';
     
+    // Kategori mapping
+    const categoryMap = {
+        'kadin': 'kadin',
+        'erkek': 'erkek',
+        'cocuk': 'cocuk',
+        'ev-yasam': 'ev-yasam',
+        'outlet': 'outlet',
+        'kozmetik': 'kozmetik',
+        'ayakkabi-canta': 'ayakkabi-canta'
+    };
+    
+    return categoryMap[categoryFromPath] || null;
+}
+
+// Kategori Filtreleme Fonksiyonu
+function filterProductsByCategory(category, updateURL = true) {
     // Aktif kategoriyi vurgula (navbar)
     categoryLinks.forEach(l => l.classList.remove('active'));
     const activeNavLink = document.querySelector(`.category-link[data-category="${category}"]`);
@@ -2035,10 +2076,50 @@ function filterProductsByCategory(category) {
         activeNavLink.classList.add('active');
     }
     
+    // Mobil menü linklerini de güncelle
+    mobileNavLinks.forEach(l => l.classList.remove('active'));
+    const activeMobileLink = document.querySelector(`.mobile-nav-link[data-category="${category}"]`);
+    if (activeMobileLink) {
+        activeMobileLink.classList.add('active');
+    }
+    
     // Mobil menüyü kapat
     if (mobileMenuOverlay) {
         mobileMenuOverlay.classList.remove('active');
         document.body.style.overflow = '';
+    }
+    
+    // URL'i güncelle (History API ile)
+    if (updateURL) {
+        try {
+            const newUrl = category === 'all' || !category
+                ? '/'
+                : `/${category}`;
+            // Sadece HTTP/HTTPS protokolünde çalışır, file:// protokolünde çalışmaz
+            if (window.location.protocol !== 'file:') {
+                window.history.pushState({ category: category }, '', newUrl);
+            }
+            
+            // Sayfa başlığını güncelle
+            const categoryTitle = category === 'all' || !category
+                ? 'Lab.Q. - Lüks Moda & Yaşam'
+                : `${categoryNames[category]} - Lab.Q.`;
+            document.title = categoryTitle;
+        } catch (e) {
+            // Dosya sistemi üzerinden açıldığında hata olabilir, görmezden gel
+            console.log('URL güncelleme atlandı (dosya sistemi modu)');
+        }
+    }
+    
+    // Ürünleri filtrele ve göster
+    if (category === 'all' || !category) {
+        // Anasayfa - sadece popüler ürünler
+        const featuredProducts = getFeaturedProducts();
+        renderProducts(featuredProducts, 'all', true);
+    } else {
+        // Kategori sayfası - o kategorinin tüm ürünleri
+        const filteredProducts = products.filter(p => p.category === category);
+        renderProducts(filteredProducts, category, false);
     }
     
     // Ürün bölümüne kaydır
@@ -2070,7 +2151,9 @@ document.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', (e) => {
         e.preventDefault();
         const category = card.dataset.category;
-        filterProductsByCategory(category);
+        if (category) {
+            filterProductsByCategory(category);
+        }
     });
 });
 
@@ -2131,7 +2214,7 @@ if (cartModalOverlay) {
     });
 }
 
-// Logo'ya tıklama - Tüm ürünleri göster
+// Logo'ya tıklama - Anasayfaya git
 const logo = document.querySelector('.logo');
 if (logo) {
     logo.addEventListener('click', (e) => {
@@ -2141,12 +2224,12 @@ if (logo) {
     });
 }
 
-// Hero butonuna tıklama
+// Hero butonuna tıklama - Ürünlere kaydır
 const heroBtn = document.querySelector('.hero-btn');
 if (heroBtn) {
     heroBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        filterProductsByCategory('all');
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 }
 
@@ -2260,10 +2343,31 @@ function addToFavorites(productId) {
     }
 }
 
-// Sayfa Yüklendiğinde Ürünleri Render Et
+// Sayfa Yüklendiğinde URL'den kategoriyi yükle
 document.addEventListener('DOMContentLoaded', () => {
-    renderProducts();
+    const categoryFromURL = getCategoryFromURL();
+    
+    if (categoryFromURL) {
+        // Kategori sayfası - o kategorinin tüm ürünlerini göster
+        filterProductsByCategory(categoryFromURL, false);
+    } else {
+        // Anasayfa - sadece popüler ürünleri göster
+        const featuredProducts = getFeaturedProducts();
+        renderProducts(featuredProducts, 'all', true);
+    }
+    
     updateCartCount();
+    
+    // Browser geri/ileri butonları için event listener
+    window.addEventListener('popstate', (e) => {
+        const categoryFromURL = getCategoryFromURL();
+        if (categoryFromURL) {
+            filterProductsByCategory(categoryFromURL, false);
+        } else {
+            const featuredProducts = getFeaturedProducts();
+            renderProducts(featuredProducts, 'all', true);
+        }
+    });
     
     // CSS Animasyonları Ekle
     const style = document.createElement('style');
