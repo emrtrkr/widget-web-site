@@ -1,4 +1,4 @@
-//move to pages/yardim.html
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -10,13 +10,73 @@
     <header class="header">
         <nav class="navbar">
             <div class="nav-center">
-                <a href="index.html" class="logo">Lab.Q.</a>
+                <a href="../index.html" class="logo">Lab.Q.</a>
             </div>
         </nav>
     </header>
-    <main class="container" style="padding: 4rem 0; min-height: 60vh;">
-        <h1>Yardım</h1>
-        <p>Yardım ve destek almak için bu sayfayı ziyaret edebilirsiniz.</p>
+    <main class="container" style="padding: 4rem 0; min-height: 60vh; max-width: 900px;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 2rem; text-align: center;">Yardım Merkezi</h1>
+        
+        <section style="margin-bottom: 3rem;">
+            <p style="line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
+                Size yardımcı olmak için buradayız. Aşağıdaki konularda destek alabilirsiniz.
+            </p>
+        </section>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <a href="sss.html" style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-decoration: none; color: inherit; text-align: center; transition: transform 0.2s;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-gold);">❓ Sıkça Sorulan Sorular</h3>
+                <p style="line-height: 1.6; color: #666;">En çok merak edilen soruların yanıtlarını bulun</p>
+            </a>
+
+            <a href="kargo-teslimat.html" style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-decoration: none; color: inherit; text-align: center; transition: transform 0.2s;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-gold);">🚚 Kargo & Teslimat</h3>
+                <p style="line-height: 1.6; color: #666;">Kargo ve teslimat bilgileri</p>
+            </a>
+
+            <a href="iade-degisim.html" style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-decoration: none; color: inherit; text-align: center; transition: transform 0.2s;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-gold);">↩️ İade & Değişim</h3>
+                <p style="line-height: 1.6; color: #666;">İade ve değişim koşulları</p>
+            </a>
+
+            <a href="guvenli-alisveris.html" style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-decoration: none; color: inherit; text-align: center; transition: transform 0.2s;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-gold);">🔒 Güvenli Alışveriş</h3>
+                <p style="line-height: 1.6; color: #666;">Güvenlik ve gizlilik politikaları</p>
+            </a>
+        </div>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--color-gold);">Hızlı Çözümler</h2>
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">Siparişimi Nasıl Takip Edebilirim?</h3>
+                <p style="line-height: 1.8; color: #666;">
+                    Siparişinizi takip etmek için e-posta adresinize gönderilen sipariş onay mesajındaki takip numarasını kullanabilir veya "Hesabım" bölümünden sipariş durumunuzu kontrol edebilirsiniz.
+                </p>
+            </div>
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">Ürün Beden Bilgilerini Nerede Bulabilirim?</h3>
+                <p style="line-height: 1.8; color: #666;">
+                    Her ürün sayfasında detaylı beden tablosu bulunmaktadır. Ürün açıklamalarında "Beden Rehberi" bölümünden ölçü tablolarına ulaşabilirsiniz.
+                </p>
+            </div>
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">Kampanya Kodunu Nasıl Kullanabilirim?</h3>
+                <p style="line-height: 1.8; color: #666;">
+                    Sepet sayfasında "Kampanya Kodu" bölümüne kodunuzu girerek indiriminizi uygulayabilirsiniz. Kampanya kodları tek kullanımlıktır ve belirli tarihler arasında geçerlidir.
+                </p>
+            </div>
+        </section>
+
+        <section style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-align: center;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-gold);">Hala Yardıma İhtiyacınız Var mı?</h2>
+            <p style="line-height: 1.8; font-size: 1.1rem; margin-bottom: 1.5rem;">
+                Müşteri hizmetleri ekibimiz size yardımcı olmak için 7/24 hizmetinizdedir.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="iletisim.html" style="padding: 1rem 2rem; background: var(--color-gold); color: #000; text-decoration: none; border-radius: 4px; font-weight: 600;">İletişime Geç</a>
+                <a href="tel:08501234567" style="padding: 1rem 2rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px; font-weight: 600;">0850 123 45 67</a>
+            </div>
+        </section>
     </main>
     <footer class="footer">
         <div class="footer-bottom">

@@ -1,4 +1,4 @@
-//move to pages/iletisim.html
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -10,13 +10,92 @@
     <header class="header">
         <nav class="navbar">
             <div class="nav-center">
-                <a href="index.html" class="logo">Lab.Q.</a>
+                <a href="../index.html" class="logo">Lab.Q.</a>
             </div>
         </nav>
     </header>
-    <main class="container" style="padding: 4rem 0; min-height: 60vh;">
-        <h1>İletişim</h1>
-        <p>Bize ulaşmak için iletişim bilgilerimizi bu sayfada bulabilirsiniz.</p>
+    <main class="container" style="padding: 4rem 0; min-height: 60vh; max-width: 900px;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 2rem; text-align: center;">İletişim</h1>
+        
+        <section style="margin-bottom: 3rem;">
+            <p style="line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
+                Sorularınız, önerileriniz veya destek talepleriniz için bizimle iletişime geçebilirsiniz. Müşteri hizmetleri ekibimiz size en kısa sürede yardımcı olmaktan memnuniyet duyacaktır.
+            </p>
+        </section>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-align: center;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-gold);">📧 E-Posta</h3>
+                <p style="line-height: 1.6; margin-bottom: 0.5rem;"><strong>Müşteri Hizmetleri:</strong></p>
+                <p style="line-height: 1.6; color: #666;">destek@labq.com</p>
+                <p style="line-height: 1.6; margin-top: 1rem; margin-bottom: 0.5rem;"><strong>Genel Bilgi:</strong></p>
+                <p style="line-height: 1.6; color: #666;">info@labq.com</p>
+            </div>
+
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-align: center;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-gold);">📞 Telefon</h3>
+                <p style="line-height: 1.6; margin-bottom: 0.5rem;"><strong>Müşteri Hizmetleri:</strong></p>
+                <p style="line-height: 1.6; color: #666;">0850 123 45 67</p>
+                <p style="line-height: 1.6; margin-top: 1rem; font-size: 0.9rem; color: #999;">
+                    Pazartesi - Cuma: 09:00 - 18:00<br>
+                    Cumartesi: 10:00 - 16:00
+                </p>
+            </div>
+
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; text-align: center;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-gold);">📍 Adres</h3>
+                <p style="line-height: 1.6; color: #666;">
+                    Lab.Q. Merkez Ofis<br>
+                    Levent Mahallesi<br>
+                    Büyükdere Cad. No:123<br>
+                    34394 Şişli / İstanbul
+                </p>
+            </div>
+        </div>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--color-gold);">İletişim Formu</h2>
+            <form style="background: #f9f9f9; padding: 2rem; border-radius: 8px;">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Ad Soyad *</label>
+                    <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">E-Posta *</label>
+                    <input type="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Konu *</label>
+                    <select required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                        <option value="">Seçiniz...</option>
+                        <option value="siparis">Sipariş Sorgulama</option>
+                        <option value="iade">İade & Değişim</option>
+                        <option value="urun">Ürün Bilgisi</option>
+                        <option value="diger">Diğer</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Mesajınız *</label>
+                    <textarea required rows="6" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; font-family: inherit;"></textarea>
+                </div>
+                <button type="submit" style="background: var(--color-gold); color: #000; padding: 1rem 2rem; border: none; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%;">
+                    Gönder
+                </button>
+            </form>
+        </section>
+
+        <section style="background: #f9f9f9; padding: 2rem; border-radius: 8px;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-gold);">Sosyal Medya</h2>
+            <p style="line-height: 1.8; font-size: 1.1rem; margin-bottom: 1rem;">
+                Bizi sosyal medya hesaplarımızdan takip edebilir, güncel kampanyalar ve yeni ürünler hakkında bilgi alabilirsiniz.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#" style="padding: 0.75rem 1.5rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px;">Instagram</a>
+                <a href="#" style="padding: 0.75rem 1.5rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px;">Facebook</a>
+                <a href="#" style="padding: 0.75rem 1.5rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px;">Twitter</a>
+                <a href="#" style="padding: 0.75rem 1.5rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px;">LinkedIn</a>
+            </div>
+        </section>
     </main>
     <footer class="footer">
         <div class="footer-bottom">
